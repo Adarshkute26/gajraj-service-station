@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gajraj Service Station | Premium Vehicle Washing in Sangamner</title>
+  <style>
+    :root {
+      --primary: #004aad;
+      --secondary: #ff6600;
+      --dark: #1e1e1e;
+      --light: #f8f9fa;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: var(--dark);
+    }
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; opacity: 0.9; }
+    
+    /* Stats Trust Section */
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      background: white;
+      padding: 30px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-top: -30px;
+      border-radius: 8px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stat-card { text-align: center; }
+    .stat-card h3 { color: var(--primary); font-size: 2rem; margin: 0; }
+    .stat-card p { margin: 5px 0 0; color: #666; font-weight: 600; }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .modal-box h2 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .close-btn {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+    }
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 0.95rem;
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #e05500; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Gajraj Service Station</h1>
+    <p>Prop. Shri Bharat Kute (Ex-Army) | Sukewadi, Sangamner</p>
+  </section>
+
+  <!-- Legacy Trust Highlights -->
+  <div class="trust-stats">
+    <div class="stat-card">
+      <h3>Since 2008</h3>
+      <p>18+ Years of Trust</p>
+    </div>
+    <div class="stat-card">
+      <h3>3 Lakh+</h3>
+      <p>Vehicles Washed</p>
+    </div>
+    <div class="stat-card">
+      <h3>100%</h3>
+      <p>Customer Satisfaction</p>
+    </div>
+  </div>
+
+  <!-- Custom Booking Modal -->
+  <div class="modal-overlay">
+    <div class="modal-box">
+      <span class="close-btn">&times;</span>
+      <h2>Schedule Your Wash Slot</h2>
+      
+      <form id="bookingForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="fullName" placeholder="e.g. Rahul Sharma" required />
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="e.g. 9637812928" required />
+        </div>
+
+        <div class="form-group">
+          <label>Vehicle Category</label>
+          <select id="vehicleCategory" required>
+            <option value="Two-Wheeler (Bike/Scooter)">Two-Wheeler (Bike/Scooter)</option>
+            <option value="Auto Rickshaw">Auto Rickshaw</option>
+            <option value="Car / SUV">Car / SUV</option>
+            <option value="Truck / Commercial">Truck / Commercial</option>
+            <option value="Tractor Tire Water Filling">Tractor Tire Water Filling</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Service Required</label>
+          <select id="serviceType" required>
+            <option value="Top Wash">Top Wash</option>
+            <option value="Inside Air Vacuum Cleaning">Inside Air Vacuum Cleaning</option>
+            <option value="Full Wash (Top Wash + Inside Vacuum)">Full Wash (Top Wash + Inside Vacuum)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" id="preferredDate" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Confirm & Reserve Slot</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Replace with your Free Google Apps Script Web App URL
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        fullName: document.getElementById('fullName').value,
+        phone: document.getElementById('phone').value,
+        vehicleCategory: document.getElementById('vehicleCategory').value,
+        serviceType: document.getElementById('serviceType').value,
+        preferredDate: document.getElementById('preferredDate').value
+      };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }).then(() => {
+        alert("Jai Hind! Your wash slot request has been sent to Gajraj Service Station. We will confirm via SMS/WhatsApp.");
+        document.getElementById('bookingForm').reset();
+      }).catch(err => {
+        alert("Error sending booking. Please call Shri Bharat Kute directly at 9637812928.");
+      });
+    });
+  </script>
+</body>
+</html>
