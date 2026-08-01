@@ -18,6 +18,17 @@
       background: #f4f6f9;
       color: var(--dark);
     }
+    /* Header / Navbar */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h2 { margin: 0; font-size: 1.4rem; }
+
     /* Hero Banner */
     .hero {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80');
@@ -25,36 +36,77 @@
       background-position: center;
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 80px 20px 100px;
     }
     .hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; opacity: 0.9; }
+    .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 25px; }
     
-    /* Stats Trust Section */
+    .btn-hero {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-hero:hover {
+      background: #e05500;
+      transform: translateY(-2px);
+    }
+
+    /* Trust Stats Section */
     .trust-stats {
       display: flex;
-      justify-content: center;
-      gap: 30px;
+      justify-content: space-around;
+      gap: 20px;
       flex-wrap: wrap;
       background: white;
       padding: 30px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      margin-top: -30px;
-      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-top: -40px;
+      border-radius: 12px;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 10;
     }
     .stat-card { text-align: center; }
-    .stat-card h3 { color: var(--primary); font-size: 2rem; margin: 0; }
-    .stat-card p { margin: 5px 0 0; color: #666; font-weight: 600; }
+    .stat-card h3 { color: var(--primary); font-size: 2.2rem; margin: 0; }
+    .stat-card p { margin: 5px 0 0; color: #555; font-weight: 600; }
 
-    /* Modal Styling */
+    /* Services Section */
+    .services-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .service-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--primary);
+    }
+    .service-card h4 { margin-top: 0; color: var(--primary); }
+
+    /* Hidden Modal Popup */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
+      background: rgba(0, 0, 0, 0.65);
+      display: none; /* HIDDEN BY DEFAULT */
       align-items: center;
       justify-content: center;
       z-index: 1000;
@@ -63,23 +115,21 @@
       background: white;
       padding: 30px;
       border-radius: 12px;
-      width: 100%;
+      width: 90%;
       max-width: 440px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
       position: relative;
     }
-    .modal-box h2 {
-      color: var(--primary);
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
+    .modal-box h2 { color: var(--primary); margin-top: 0; font-size: 1.5rem; }
     .close-btn {
       position: absolute;
       top: 15px; right: 20px;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
       color: #888;
+      font-weight: bold;
     }
+    .close-btn:hover { color: #000; }
     .form-group { margin-bottom: 15px; text-align: left; }
     .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
     .form-group input, .form-group select {
@@ -100,17 +150,22 @@
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.2s;
     }
-    .btn-submit:hover { background: #e05500; }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
+  <header>
+    <h2>Gajraj Service Station</h2>
+    <span>Sangamner / Sukewadi</span>
+  </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <h1>Gajraj Service Station</h1>
     <p>Prop. Shri Bharat Kute (Ex-Army) | Sukewadi, Sangamner</p>
+    <button class="btn-hero" id="openBookingBtn">Book Wash Slot Online</button>
   </section>
 
   <!-- Legacy Trust Highlights -->
@@ -129,10 +184,33 @@
     </div>
   </div>
 
+  <!-- Services Section -->
+  <div class="services-container">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h4>Top Wash</h4>
+        <p>Complete exterior high-pressure foam & water cleaning for all vehicles.</p>
+      </div>
+      <div class="service-card">
+        <h4>Inside Air Vacuum</h4>
+        <p>Deep interior dust & particle extraction using high-power air vacuuming.</p>
+      </div>
+      <div class="service-card">
+        <h4>Full Wash</h4>
+        <p>Exterior Top Wash combined with deep interior Air Vacuum cleaning.</p>
+      </div>
+      <div class="service-card">
+        <h4>Tractor Tire Water Filling</h4>
+        <p>Specialized heavy-duty tire water ballast filling service for farm tractors.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Custom Booking Modal -->
-  <div class="modal-overlay">
+  <div class="modal-overlay" id="bookingModal">
     <div class="modal-box">
-      <span class="close-btn">&times;</span>
+      <span class="close-btn" id="closeModalBtn">&times;</span>
       <h2>Schedule Your Wash Slot</h2>
       
       <form id="bookingForm">
@@ -177,10 +255,22 @@
   </div>
 
   <script>
-    // Replace with your Free Google Apps Script Web App URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyJE1SaUYmO0e3mc8KvcTvaMFkG_EVDGQDC0pODFgGndbsGWXBGGxfq56pf-uWYS8w/exec
-  ";
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
 
+    // Modal Control JavaScript
+    const modal = document.getElementById('bookingModal');
+    const openBtn = document.getElementById('openBookingBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+
+    // Close modal if user clicks outside the modal box
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) { modal.style.display = 'none'; }
+    });
+
+    // Form Submission
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -198,8 +288,9 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       }).then(() => {
-        alert("Jai Hind! Your wash slot request has been sent to Gajraj Service Station. We will confirm via SMS/WhatsApp.");
+        alert("Jai Hind! Your wash slot request has been sent to Gajraj Service Station.");
         document.getElementById('bookingForm').reset();
+        modal.style.display = 'none';
       }).catch(err => {
         alert("Error sending booking. Please call Shri Bharat Kute directly at 9637812928.");
       });
