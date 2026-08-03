@@ -1,559 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gajraj Service Station | Military-Grade Vehicle Washing</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brandBlue: '#004aad',
-                        brandOrange: '#ff6600',
-                        brandDark: '#0a111e',
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
-
-    <header class="bg-brandBlue text-white sticky top-0 z-40 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="bg-white/10 p-2 rounded-lg">
-                    <i data-lucide="shield-check" class="w-7 h-7 text-brandOrange"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-tight">GAJRAJ SERVICE STATION</h1>
-                    <p class="text-xs text-blue-200">Ex-Army Led • Sangamner / Sukewadi</p>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/919637812928" target="_blank" class="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-sm font-semibold transition">
-                    <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp Us
-                </a>
-                <button onclick="openAdminLoginModal()" class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 py-1.5 rounded-lg text-xs transition flex items-center gap-1.5">
-                    <i data-lucide="lock" class="w-3.5 h-3.5"></i> Admin Portal
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <section class="relative bg-brandDark text-white py-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#004aad_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <span class="inline-block bg-brandOrange/20 text-brandOrange border border-brandOrange/40 font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-                🇮🇳 "Jai Hind" Precision & Discipline
-            </span>
-            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-                Military-Grade Vehicle Care <br>
-                <span class="text-brandOrange">Without The Wait</span>
-            </h2>
-            <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
-                Serving Sangamner & Sukewadi since 2008. From urban cars to tractors & heavy trucks, experience precision high-pressure washing and instant digital slot booking.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="openRegisterModal()" class="bg-brandOrange hover:bg-orange-600 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
-                    <i data-lucide="calendar" class="w-5 h-5"></i> Book Wash Slot Online
-                </button>
-                <a href="tel:09637812928" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-lg px-8 py-4 rounded-xl transition flex items-center justify-center gap-2">
-                    <i data-lucide="phone" class="w-5 h-5"></i> Call: 096378 12928
-                </a>
-            </div>
-        </div>
-
-        <div class="max-w-4xl mx-auto mt-14 bg-white text-slate-800 rounded-2xl shadow-2xl border border-slate-100 p-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-20">
-            <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0">
-                <div class="bg-blue-50 p-3 rounded-xl text-brandBlue">
-                    <i data-lucide="award" class="w-8 h-8"></i>
-                </div>
-                <div>
-                    <p class="text-3xl font-extrabold text-brandBlue">18+ Yrs</p>
-                    <p class="text-xs text-slate-500 font-semibold uppercase">Operational Legacy</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0">
-                <div class="bg-orange-50 p-3 rounded-xl text-brandOrange">
-                    <i data-lucide="truck" class="w-8 h-8"></i>
-                </div>
-                <div>
-                    <p class="text-3xl font-extrabold text-brandDark">300,000+</p>
-                    <p class="text-xs text-slate-500 font-semibold uppercase">Vehicles Serviced</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="bg-green-50 p-3 rounded-xl text-green-600">
-                    <i data-lucide="check-circle-2" class="w-8 h-8"></i>
-                </div>
-                <div>
-                    <p class="text-3xl font-extrabold text-brandBlue">Ex-Army</p>
-                    <p class="text-xs text-slate-500 font-semibold uppercase">Led Precision</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="max-w-7xl mx-auto px-4 py-16">
-        <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-brandBlue">Our Core Capabilities</h3>
-            <p class="text-slate-600 mt-2">Specialized vehicle care tailored for urban, agricultural, and commercial needs.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md border border-slate-100 p-6 hover:shadow-xl transition">
-                <div class="w-12 h-12 bg-blue-100 text-brandBlue rounded-lg flex items-center justify-center mb-4">
-                    <i data-lucide="sparkles" class="w-6 h-6"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Top Wash & Full Wash</h4>
-                <p class="text-slate-600 text-sm mb-4">High-pressure foam car washing, underbody clean, and deep hand washing for cars, SUVs, and bikes.</p>
-                <button onclick="openRegisterModal()" class="w-full mt-2 bg-slate-100 hover:bg-brandBlue hover:text-white text-brandBlue font-semibold text-xs py-2 rounded transition">Book This Service</button>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md border border-slate-100 p-6 hover:shadow-xl transition">
-                <div class="w-12 h-12 bg-orange-100 text-brandOrange rounded-lg flex items-center justify-center mb-4">
-                    <i data-lucide="wind" class="w-6 h-6"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Interior Vacuuming & Care</h4>
-                <p class="text-slate-600 text-sm mb-4">Industrial extraction of dust, mud, and particles from cabin interiors and seats.</p>
-                <button onclick="openRegisterModal()" class="w-full mt-2 bg-slate-100 hover:bg-brandBlue hover:text-white text-brandBlue font-semibold text-xs py-2 rounded transition">Book This Service</button>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md border border-slate-100 p-6 hover:shadow-xl transition">
-                <div class="w-12 h-12 bg-green-100 text-green-700 rounded-lg flex items-center justify-center mb-4">
-                    <i data-lucide="tractor" class="w-6 h-6"></i>
-                </div>
-                <h4 class="text-xl font-bold mb-2">Agri & Heavy Vehicles</h4>
-                <p class="text-slate-600 text-sm mb-4">Heavy mud cleaning for tractors & trucks, plus specialized tractor tire water ballast filling.</p>
-                <button onclick="openRegisterModal()" class="w-full mt-2 bg-slate-100 hover:bg-brandBlue hover:text-white text-brandBlue font-semibold text-xs py-2 rounded transition">Book This Service</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-slate-100 py-12 px-4 border-t border-b border-slate-200">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex items-center justify-between mb-6">
-                <div>
-                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <span class="relative flex h-3 w-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                        </span>
-                        Live Operations Queue
-                    </h3>
-                    <p class="text-xs text-slate-500">Realtime Wash Bay Status</p>
-                </div>
-                <span class="text-xs font-mono bg-white px-3 py-1 rounded-md border border-slate-200">Current Wait: ~15 Mins</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-slate-400 font-bold uppercase">Bay 1 (Car Wash)</p>
-                        <p class="font-bold text-slate-800">Toyota Fortuner - Full Wash</p>
-                    </div>
-                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded font-semibold">In Progress</span>
-                </div>
-                <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-slate-400 font-bold uppercase">Bay 2 (Agri / Heavy)</p>
-                        <p class="font-bold text-slate-800">Mahindra Tractor - Wash + Ballast</p>
-                    </div>
-                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded font-semibold">In Progress</span>
-                </div>
-                <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-slate-400 font-bold uppercase">Bay 3 (Express)</p>
-                        <p class="font-bold text-slate-800">Next Reserved Slot</p>
-                    </div>
-                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded font-semibold">Ready / Open</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-brandDark text-slate-400 mt-auto py-10 px-4">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+<div id="registerModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+        <div class="bg-brandBlue text-white p-5 flex items-center justify-between">
             <div>
-                <h4 class="text-white font-bold mb-2">Gajraj Service Station</h4>
-                <p>Nagar-Road, Near Vighnaharta Lawns, Sangamner, Maharashtra 422605</p>
-                <p class="mt-2">Hours: Mon - Sun: 08:00 - 19:00</p>
+                <h3 class="font-bold text-lg">Book Wash Slot</h3>
+                <p class="text-xs text-blue-200">Register details to receive instant WhatsApp slot confirmation</p>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-2">Target Service Areas</h4>
-                <p>Sangamner • Sukewadi • Transit Traffic</p>
-                <p class="mt-2">Payment: Cash & UPI Accepted</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-2">Military Ethos</h4>
-                <p>"Precision, punctuality, and military-grade service standards built on an Ex-Army foundation."</p>
-                <p class="mt-2 text-xs text-slate-500">© 2026 Gajraj Service Station. All Rights Reserved.</p>
-            </div>
+            <button onclick="closeRegisterModal()" class="text-blue-200 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
         </div>
-    </footer>
 
-
-    <div id="registerModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-            <div class="bg-brandBlue text-white p-5 flex items-center justify-between">
-                <div>
-                    <h3 class="font-bold text-lg">Book Wash Slot</h3>
-                    <p class="text-xs text-blue-200">Register details to receive instant WhatsApp slot confirmation</p>
-                </div>
-                <button onclick="closeRegisterModal()" class="text-blue-200 hover:text-white">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
+        <form onsubmit="handleCustomerRegistration(event)" class="p-6 overflow-y-auto space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Customer Name *</label>
+                <input type="text" id="custName" required placeholder="e.g. Demo User" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
             </div>
 
-            <form onsubmit="handleCustomerRegistration(event)" class="p-6 overflow-y-auto space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Customer Name *</label>
-                    <input type="text" id="custName" required placeholder="e.g. Rahul Shinde" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Vehicle Model *</label>
+                    <input type="text" id="custVehicle" required placeholder="e.g. TVS Jupiter / Creta" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
                 </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Vehicle Model *</label>
-                        <input type="text" id="custVehicle" required placeholder="e.g. Mahindra Tractor / Creta" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Vehicle Registration No. *</label>
-                        <input type="text" id="custRegNo" required placeholder="e.g. MH 17 AB 1234" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contact Number *</label>
-                        <input type="tel" id="custPhone" required placeholder="e.g. 9876543210" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Time Slot *</label>
-                        <select id="custSlot" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
-                            <option>Morning (08:00 AM - 11:00 AM)</option>
-                            <option>Afternoon (11:00 AM - 03:00 PM)</option>
-                            <option>Evening (03:00 PM - 07:00 PM)</option>
-                        </select>
-                    </div>
-                </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Native Address / Village *</label>
-                    <input type="text" id="custAddress" required placeholder="e.g. Sukewadi, Sangamner" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Vehicle Registration No. *</label>
+                    <input type="text" id="custRegNo" required placeholder="e.g. MH17BF2603" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
                 </div>
+            </div>
 
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Contact Number *</label>
+                <input type="tel" id="custPhone" required placeholder="e.g. 9325168822" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Service Required</label>
-                    <select id="custService" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
-                        <option>Full Wash + Vacuuming</option>
-                        <option>Top Foam Wash</option>
-                        <option>Tractor Wash + Tire Ballast Filling</option>
-                        <option>Commercial Truck / Heavy Wash</option>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Date *</label>
+                    <input type="date" id="custDate" required class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Preferred Time Slot *</label>
+                    <select id="custSlot" required class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+                        <option value="Morning (08:00 AM - 11:00 AM)">Morning (08:00 AM - 11:00 AM)</option>
+                        <option value="Afternoon (11:00 AM - 03:00 PM)">Afternoon (11:00 AM - 03:00 PM)</option>
+                        <option value="Evening (03:00 PM - 07:00 PM)">Evening (03:00 PM - 07:00 PM)</option>
                     </select>
                 </div>
+            </div>
 
-                <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2 mt-4">
-                    <i data-lucide="message-square" class="w-5 h-5"></i> Send Request via WhatsApp
-                </button>
-            </form>
-        </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Native Address / Village *</label>
+                <input type="text" id="custAddress" required placeholder="e.g. Sangamner / Sukewadi" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Service Required</label>
+                <select id="custService" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brandBlue">
+                    <option>Top Foam Wash</option>
+                    <option>Full Wash + Vacuuming</option>
+                    <option>Tractor Wash + Tire Ballast Filling</option>
+                    <option>Commercial Truck / Heavy Wash</option>
+                </select>
+            </div>
+
+            <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2 mt-4">
+                <i data-lucide="message-square" class="w-5 h-5"></i> Send Request via WhatsApp
+            </button>
+        </form>
     </div>
+</div>
 
-
-    <div id="adminLoginModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden p-6">
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-blue-100 text-brandBlue rounded-full flex items-center justify-center mx-auto mb-3">
-                    <i data-lucide="lock" class="w-6 h-6"></i>
-                </div>
-                <h3 class="font-bold text-lg text-slate-800">Admin Authentication</h3>
-                <p class="text-xs text-slate-500">Restricted access to Gajraj AI Command Portal</p>
-            </div>
-
-            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Username</label>
-                    <input type="text" id="adminUser" required value="admin" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Password</label>
-                    <input type="password" id="adminPass" required value="gajraj2026" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm">
-                </div>
-                <p id="loginError" class="text-xs text-red-600 font-semibold hidden text-center">Invalid username or password.</p>
-                
-                <div class="flex gap-2">
-                    <button type="button" onclick="closeAdminLoginModal()" class="w-1/2 bg-slate-100 text-slate-600 font-semibold py-2.5 rounded-lg text-sm">Cancel</button>
-                    <button type="submit" class="w-1/2 bg-brandBlue text-white font-semibold py-2.5 rounded-lg text-sm">Login</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-    <div id="agentModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[85vh]">
-            
-            <div class="bg-brandDark text-white p-4 flex items-center justify-between border-b border-slate-800">
-                <div class="flex items-center gap-3">
-                    <div class="bg-brandOrange/20 p-2 rounded-lg text-brandOrange">
-                        <i data-lucide="bot" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg flex items-center gap-2">
-                            Gajraj Realtime AI Agent Engine 
-                            <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-[10px] uppercase font-mono px-2 py-0.5 rounded">Admin Only</span>
-                        </h3>
-                        <p class="text-xs text-slate-400">Autonomous Business Intelligence & Operations Command Center</p>
-                    </div>
-                </div>
-                <button onclick="closeAgentModal()" class="text-slate-400 hover:text-white">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-
-            <div class="flex border-b border-slate-200 bg-slate-50 overflow-x-auto text-sm font-semibold">
-                <button onclick="switchTab('sales')" id="tab-sales" class="tab-btn px-4 py-3 text-brandBlue border-b-2 border-brandBlue flex items-center gap-2">
-                    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Sales & Deals
-                </button>
-                <button onclick="switchTab('bookings')" id="tab-bookings" class="tab-btn px-4 py-3 text-slate-600 flex items-center gap-2">
-                    <i data-lucide="users" class="w-4 h-4"></i> Customer Requests
-                </button>
-                <button onclick="switchTab('ops')" id="tab-ops" class="tab-btn px-4 py-3 text-slate-600 flex items-center gap-2">
-                    <i data-lucide="sliders" class="w-4 h-4"></i> Operations
-                </button>
-                <button onclick="switchTab('mkt')" id="tab-mkt" class="tab-btn px-4 py-3 text-slate-600 flex items-center gap-2">
-                    <i data-lucide="megaphone" class="w-4 h-4"></i> Marketing
-                </button>
-                <button onclick="switchTab('backoffice')" id="tab-backoffice" class="tab-btn px-4 py-3 text-slate-600 flex items-center gap-2">
-                    <i data-lucide="file-text" class="w-4 h-4"></i> Back Office
-                </button>
-                <button onclick="switchTab('intel')" id="tab-intel" class="tab-btn px-4 py-3 text-slate-600 flex items-center gap-2">
-                    <i data-lucide="line-chart" class="w-4 h-4"></i> BI & Analytics
-                </button>
-            </div>
-
-            <div class="p-6 overflow-y-auto flex-1 bg-slate-50">
-                
-                <div id="view-sales" class="tab-view space-y-4">
-                    <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
-                        <h4 class="font-bold text-brandOrange flex items-center gap-2">
-                            <i data-lucide="tag" class="w-5 h-5"></i> Active AI Deals Engine
-                        </h4>
-                        <p class="text-sm text-slate-700 mt-1">AI calculated localized offer based on rainy season & traffic patterns:</p>
-                        <div class="bg-white p-3 rounded border border-orange-200 mt-2 font-mono text-xs text-slate-800">
-                            <strong>Special Agri Deal:</strong> 15% OFF Tractor Full Wash + Tire Ballast Filling combo when booked today via WhatsApp.
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">Simulate AI Slot Booking Response</h4>
-                        <button onclick="runSalesSim()" class="bg-brandBlue text-white text-xs font-semibold px-4 py-2 rounded">Run AI Sales Pitch Simulator</button>
-                        <div id="sales-output" class="mt-3 text-xs bg-slate-900 text-green-400 p-3 rounded font-mono hidden"></div>
-                    </div>
-                </div>
-
-                <div id="view-bookings" class="tab-view hidden space-y-4">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">Incoming Website Registrations</h4>
-                        <p class="text-xs text-slate-500 mb-4">Realtime customer records captured from registration form.</p>
-                        <div id="bookingList" class="space-y-3">
-                            <p class="text-xs text-slate-400 italic">No new registrations received in this session yet.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="view-ops" class="tab-view hidden space-y-4">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">AI Queue & Bay Allocation</h4>
-                        <div class="space-y-2 text-xs font-mono">
-                            <div class="p-2 bg-slate-100 rounded flex justify-between">
-                                <span>Bay 1 Utilization: 85%</span>
-                                <span class="text-green-600 font-bold">Optimal</span>
-                            </div>
-                            <div class="p-2 bg-slate-100 rounded flex justify-between">
-                                <span>Agri Water Ballast Pump Pressure: 120 PSI</span>
-                                <span class="text-green-600 font-bold">Normal</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="view-mkt" class="tab-view hidden space-y-4">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">Automated Local WhatsApp Campaigns</h4>
-                        <div class="p-3 bg-slate-100 border border-slate-200 rounded text-xs italic text-slate-700">
-                            "Namaste! It's been 30 days since your car's last deep wash at Gajraj Service Station. Keep your vehicle clean and rust-free! Reply YES to book your slot instantly."
-                        </div>
-                    </div>
-                </div>
-
-                <div id="view-backoffice" class="tab-view hidden space-y-4">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">Consumables & Inventory AI Guard</h4>
-                        <div class="grid grid-cols-2 gap-3 text-xs font-mono">
-                            <div class="p-3 bg-slate-100 rounded">
-                                <p class="text-slate-500">Foam Shampoo Stock</p>
-                                <p class="text-base font-bold text-slate-800">42 Liters Left</p>
-                            </div>
-                            <div class="p-3 bg-slate-100 rounded">
-                                <p class="text-slate-500">Vacuum Filter Health</p>
-                                <p class="text-base font-bold text-green-600">Good (92%)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="view-intel" class="tab-view hidden space-y-4">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">Executive Business Intelligence</h4>
-                        <div class="grid grid-cols-3 gap-3 text-xs">
-                            <div class="bg-blue-50 p-3 rounded text-center">
-                                <p class="text-brandBlue font-bold text-lg">300,000+</p>
-                                <p class="text-slate-500">Lifetime Vehicles</p>
-                            </div>
-                            <div class="bg-orange-50 p-3 rounded text-center">
-                                <p class="text-brandOrange font-bold text-lg">34%</p>
-                                <p class="text-slate-500">Agri/Commercial Ratio</p>
-                            </div>
-                            <div class="bg-green-50 p-3 rounded text-center">
-                                <p class="text-green-700 font-bold text-lg">98.2%</p>
-                                <p class="text-slate-500">Customer Satisfaction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        lucide.createIcons();
-
-        // Admin Auth State
-        let isAdminLoggedIn = false;
-        const customerBookings = [];
-
-        // Modals Logic
-        function openRegisterModal() {
-            document.getElementById('registerModal').classList.remove('hidden');
+<script>
+    // Set minimum date selector to today automatically on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        const dateInput = document.getElementById('custDate');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            dateInput.value = today; // Default to today
         }
+    });
 
-        function closeRegisterModal() {
-            document.getElementById('registerModal').classList.add('hidden');
-        }
+    // Updated Customer Registration & WhatsApp Handler with Date
+    function handleCustomerRegistration(e) {
+        e.preventDefault();
 
-        function openAdminLoginModal() {
-            if (isAdminLoggedIn) {
-                document.getElementById('agentModal').classList.remove('hidden');
-            } else {
-                document.getElementById('adminLoginModal').classList.remove('hidden');
-            }
-        }
+        const name = document.getElementById('custName').value;
+        const vehicle = document.getElementById('custVehicle').value;
+        const regNo = document.getElementById('custRegNo').value;
+        const phone = document.getElementById('custPhone').value;
+        const rawDate = document.getElementById('custDate').value;
+        const slot = document.getElementById('custSlot').value;
+        const address = document.getElementById('custAddress').value;
+        const service = document.getElementById('custService').value;
 
-        function closeAdminLoginModal() {
-            document.getElementById('adminLoginModal').classList.add('hidden');
-        }
+        // Format Date for cleaner reading
+        const dateObj = new Date(rawDate);
+        const formattedDate = dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
 
-        function closeAgentModal() {
-            document.getElementById('agentModal').classList.add('hidden');
-        }
-
-        // Admin Login Handling
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            const user = document.getElementById('adminUser').value;
-            const pass = document.getElementById('adminPass').value;
-
-            if (user === 'admin' && pass === 'gajraj2026') {
-                isAdminLoggedIn = true;
-                document.getElementById('loginError').classList.add('hidden');
-                closeAdminLoginModal();
-                document.getElementById('agentModal').classList.remove('hidden');
-            } else {
-                document.getElementById('loginError').classList.remove('hidden');
-            }
-        }
-
-        // Customer Registration & WhatsApp Relay Engine
-        function handleCustomerRegistration(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('custName').value;
-            const vehicle = document.getElementById('custVehicle').value;
-            const regNo = document.getElementById('custRegNo').value;
-            const phone = document.getElementById('custPhone').value;
-            const slot = document.getElementById('custSlot').value;
-            const address = document.getElementById('custAddress').value;
-            const service = document.getElementById('custService').value;
-
-            // Save to Admin State
-            customerBookings.unshift({ name, vehicle, regNo, phone, slot, address, service, time: new Date().toLocaleTimeString() });
+        // Save to Admin Session State
+        customerBookings.unshift({ 
+            name, vehicle, regNo, phone, date: formattedDate, slot, address, service, time: new Date().toLocaleTimeString() 
+        });
+        if (typeof renderAdminBookings === 'function') {
             renderAdminBookings();
-
-            // Construct WhatsApp Message
-            const whatsappMsg = `Jai Hind Gajraj Team! I want to book a wash slot.%0A%0A` +
-                `*Customer Name:* ${encodeURIComponent(name)}%0A` +
-                `*Vehicle Model:* ${encodeURIComponent(vehicle)}%0A` +
-                `*Registration No:* ${encodeURIComponent(regNo)}%0A` +
-                `*Phone:* ${encodeURIComponent(phone)}%0A` +
-                `*Address:* ${encodeURIComponent(address)}%0A` +
-                `*Service:* ${encodeURIComponent(service)}%0A` +
-                `*Preferred Slot:* ${encodeURIComponent(slot)}%0A%0A` +
-                `Please confirm slot availability.`;
-
-            // Redirect to WhatsApp Business API
-            window.open(`https://wa.me/919637812928?text=${whatsappMsg}`, '_blank');
-            closeRegisterModal();
         }
 
-        // Render Bookings inside Admin Portal
-        function renderAdminBookings() {
-            const container = document.getElementById('bookingList');
-            if (customerBookings.length === 0) return;
+        // Construct pre-filled WhatsApp Message with Date & Time
+        const whatsappMsg = `Jai Hind Gajraj Team! I want to book a vehicle wash slot.%0A%0A` +
+            `*Customer Name:* ${encodeURIComponent(name)}%0A` +
+            `*Vehicle Model:* ${encodeURIComponent(vehicle)}%0A` +
+            `*Registration No:* ${encodeURIComponent(regNo)}%0A` +
+            `*Phone:* ${encodeURIComponent(phone)}%0A` +
+            `*Address:* ${encodeURIComponent(address)}%0A` +
+            `*Service:* ${encodeURIComponent(service)}%0A` +
+            `*Requested Date:* ${encodeURIComponent(formattedDate)}%0A` +
+            `*Preferred Slot:* ${encodeURIComponent(slot)}%0A%0A` +
+            `Please confirm slot availability.`;
 
-            container.innerHTML = customerBookings.map(b => `
-                <div class="bg-slate-100 p-3 rounded-lg text-xs font-sans border border-slate-200">
-                    <div class="flex justify-between font-bold text-slate-800">
-                        <span>${b.name} (${b.phone})</span>
-                        <span class="text-brandBlue">${b.slot}</span>
-                    </div>
-                    <p class="text-slate-600 mt-1">Vehicle: <strong>${b.vehicle}</strong> | Reg: <strong>${b.regNo}</strong></p>
-                    <p class="text-slate-600">Service: ${b.service} | Address: ${b.address}</p>
-                    <span class="text-[10px] text-slate-400 font-mono mt-1 block">Registered at ${b.time}</span>
-                </div>
-            `).join('');
-        }
-
-        // Tab Switching Engine inside Admin Modal
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.tab-btn').forEach(el => {
-                el.classList.remove('text-brandBlue', 'border-b-2', 'border-brandBlue');
-                el.classList.add('text-slate-600');
-            });
-
-            document.getElementById(`view-${tabName}`).classList.remove('hidden');
-            const activeTab = document.getElementById(`tab-${tabName}`);
-            activeTab.classList.add('text-brandBlue', 'border-b-2', 'border-brandBlue');
-            activeTab.classList.remove('text-slate-600');
-        }
-
-        function runSalesSim() {
-            const output = document.getElementById('sales-output');
-            output.classList.remove('hidden');
-            output.innerText = "> AI Agent initialized...\n> Target segment: Agricultural / Heavy Operator\n> Auto-generated deal message dispatched via WhatsApp API.";
-        }
-    </script>
-</body>
-</html>
+        // Redirect to WhatsApp
+        window.open(`https://wa.me/919637812928?text=${whatsappMsg}`, '_blank');
+        closeRegisterModal();
+    }
+</script>
